@@ -2,15 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:style="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>LOLcounters - Champ detail</title>
+    <title th:text="${champion.name} + ' details'"></title>
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="icon" th:href="@{'/squares/'+${champion.name}+'Square.png'}"/>
+
     <style>
         body {
             background-color: black;
             color: white;
             font-family: Pathway Gothic One, sans-serif;
         }
-        button{
+        button {
             font-size: 40px;
             border-radius: 12px;
             background-color: black;
@@ -20,21 +22,68 @@
             width: 350px;
             font-family: Pathway Gothic One, sans-serif;
         }
-        button:hover{
-            box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
+        button:hover {
+            box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
         }
-        a:hover{
-            box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
+        a:hover {
+            box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
         }
-        .shadow{
-            box-shadow: 20px 0px 8px -4px rgba(255,255,255,0.24), 20px 0px 8px -4px rgba(255,255,255,0.19);
+        .shadow {
+            box-shadow: 20px 0px 8px -4px rgba(255, 255, 255, 0.24), 20px 0px 8px -4px rgba(255, 255, 255, 0.19);
+        }
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+        .button span:after {
+            content: '\00ab';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: -20px;
+            transition: 0.5s;
+        }
+        .button:hover span {
+            padding-left: 25px;
+        }
+        .button:hover span:after {
+            opacity: 1;
+            left: 0;
+        }
+        .title-text {
+            font-size: 80px;
+            background: -webkit-linear-gradient(#eee,#333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 150%;
+        }
+        .lol-logo{
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
         }
     </style>
 
 </head>
 <body>
-<h1></h1>
-<h2>
+<h1 style="border-spacing: 0px 50px;">
+    <div>
+    <div class="title-text" style=" border-radius: 15px;  background-color: black;
+            box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);">
+        <img class="lol-logo" th:src="${'/Loading screeny/Logo.jpg'}"/> LoL Counter App
+    </div>
+        <div style="position: relative; top:20px;">
+            <a th:href="@{/}">
+                <button class="button" , style="background-color: dimgray;"><span>  Back to Champion list</span>
+                </button>
+            </a>
+        </div>
+    </div>
+</h1>
+<h2 style="position: relative; top: 30px;">
     <table style="border-spacing: 20px 0px;">
         <tr>
 
@@ -42,29 +91,32 @@
                 <img th:src="${champion.lscreenPath}"/>
             </td>
             <td class="shadow" style="width: 600px; vertical-align: middle; background-color: black">
-                <text th:text="${champion.name}", style="font-size: 150px;"/><hr style="size: 20px;">
-                <text th:text="${champion.title}", style="font-size: 70px;"/><br>
-                <a th:href="@{'https://u.gg/lol/champions/'+${champion.name}+'/build'}", target="_blank">
+                <text th:text="${champion.name}" , style="font-size: 150px;"/>
+                <hr style="size: 20px;">
+                <text th:text="${champion.title}" , style="font-size: 70px;"/>
+                <br>
+                <a th:href="@{'https://u.gg/lol/champions/'+${champion.name}+'/build'}" , target="_blank">
                     <button type="button" style="color: darkorange;">u.gg BUILDS</button>
                 </a>
             </td>
             <td>
-                <table style="border-spacing: 20px 0px;" >
-                    <th style="text-align: left; font-size: 30px; color: crimson;">HARD COUNTERS: </th>
+                <table style="border-spacing: 20px 0px;">
+                    <th style="text-align: left; font-size: 30px; color: crimson;">HARD COUNTERS:</th>
                     <tr style="height: 230px;">
-                        <td th:each="champion: ${counters}", style="text-align: center; width: 120px;" >
-                            <a th:href="@{'/' + ${champion.id}}">
+                        <td th:each="champion: ${counters}" , style="text-align: center; width: 120px;">
+                            <a th:href="@{'/champion/' + ${champion.id}}">
                                 <img th:src="${champion.imagePath}">
-                                <button type="button" th:text="${champion.name}", style="width: 140px; font-size: 30px;"/>
+                                <button th:text="${champion.name}" , style="width: 140px; font-size: 30px;"/>
                             </a>
                         </td>
                     </tr>
                     <th style="text-align: left; font-size: 30px; color: greenyellow">EASY MATCHUP'S:</th>
                     <tr style="height: 230px;">
-                        <td th:each="champion: ${goodMatchup}", style="text-align: center; width: 120px;">
-                            <a th:href="@{'/' + ${champion.id}}">
+                        <td th:each="champion: ${goodMatchup}" , style="text-align: center; width: 120px;">
+                            <a th:href="@{'/champion/' + ${champion.id}}">
                                 <img th:src="${champion.imagePath}">
-                                <button type="button" th:text="${champion.name}", style="width: 140px; font-size: 30px;"/>
+                                <button type="button" th:text="${champion.name}" ,
+                                        style="width: 140px; font-size: 30px;"/>
                             </a>
                         </td>
                     </tr>

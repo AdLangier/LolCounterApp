@@ -2,16 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:style="http://java.sun.com/xml/ns/persistence/orm">
 <head>
     <meta charset="UTF-8">
-    <title>LOLcounters</title>
+    <title>LOL counters</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+    <link rel="icon" th:href="@{/Loading screeny/Logo.jpg}"/>
 <!--    <link rel="stylesheet" th:href="style.css">-->
     <style>
         body{
             background-color: black;
             color: white;
+            font-family: Pathway Gothic One, sans-serif;
         }
-
         button{
             font-size: 30px;
             border-radius: 12px;
@@ -25,30 +26,64 @@
         a:hover{
             box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
         }
+        .title-text {
+            font-size: 80px;
+            background: -webkit-linear-gradient(#eee,#333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 150%;
+        }
+        .lol-logo{
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
+        }
+        #search-bar{
+            font-size: 35px;
+            font-family: Pathway Gothic One, sans-serif;
+            -webkit-text-fill-color: black;
+            width: 500px;
+        }
+        input::placeholder{
+            opacity: 0.3;
+        }
     </style>
-
-
 </head>
 <body>
 <h1>
+    <div class="title-text" style=" border-radius: 15px;  background-color: black;
+            box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);">
+        <img class="lol-logo" th:src="${'/Loading screeny/Logo.jpg'}"/> LoL Counter App
+    </div>
 
-
+    <div class="title-text", style=" font-size: 50px; line-height: 300%">
+        <label> Find Champion
+            <input id="search-bar" type="text" placeholder="Enter name..."/>
+        </label>
+    </div>
 </h1>
 <h2>
     <table style="border-spacing: 10px 0px; ">
-        <tr th:each="champion: ${champions}", style="display: inline-block;">
+        <tr th:each="champion: ${champions}"
+            class ="champion"
+            th:object="${champion}"
+            th:name="${champion.name}"
+            style="display: inline-block;">
             <td>
-                <a th:href="@{'/' + ${champion.id}}">
+                <a th:href="@{'/champion/' + ${champion.id}}">
                     <img th:src="${champion.imagePath}", style=" width: 75%; height: 75%;"/>
                 </a>
             </td>
             <td style="width: 200px;">
-                <a th:href="@{'/' + ${champion.id}}">
+                <a th:href="@{'/champion/' + ${champion.id}}">
                 <button type ="button" th:text="${champion.name}"/>
                 </a>
             </td>
         </tr>
     </table>
 </h2>
+<!--<script src="/script/searchbar.js"></script>-->
+<script type="text/javascript" th:src="@{/script/searchbar.js}"></script>
 </body>
 </html>
