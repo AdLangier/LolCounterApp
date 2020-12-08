@@ -5,13 +5,9 @@
     <title th:text="${champion.name} + ' details'"></title>
     <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap" rel="stylesheet">
     <link rel="icon" th:href="@{'/squares/'+${champion.name}+'Square.png'}"/>
+    <link rel="stylesheet" th:href="@{/style/style.css}">
 
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Pathway Gothic One, sans-serif;
-        }
         button {
             font-size: 40px;
             border-radius: 12px;
@@ -29,7 +25,14 @@
             box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
         }
         .shadow {
-            box-shadow: 20px 0px 8px -4px rgba(255, 255, 255, 0.24), 20px 0px 8px -4px rgba(255, 255, 255, 0.19);
+            box-shadow: 20px 12px 16px -4px rgba(255,255,255,0.24), 20px 17px 50px -4px rgba(255,255,255,0.19);
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .shadow2{
+            box-shadow: 20px 12px 16px -4px rgba(255,255,255,0.24), 20px 17px 50px -4px rgba(255,255,255,0.19);
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
         }
         .button span {
             cursor: pointer;
@@ -84,13 +87,13 @@
     </div>
 </h1>
 <h2 style="position: relative; top: 30px;">
-    <table style="border-spacing: 20px 0px;">
+    <table style="border-spacing: 0px 0px;">
         <tr>
 
-            <td>
+            <td class = "shadow2" style="width: 308px; background-color: black; opacity: 0.9; margin-left: 20px;">
                 <img th:src="${champion.lscreenPath}"/>
             </td>
-            <td class="shadow" style="width: 600px; vertical-align: middle; background-color: black">
+            <td class="shadow" style="width: 600px; vertical-align: middle; background-color: black; opacity: 0.9;">
                 <text th:text="${champion.name}" , style="font-size: 150px;"/>
                 <hr style="size: 20px;">
                 <text th:text="${champion.title}" , style="font-size: 70px;"/>
