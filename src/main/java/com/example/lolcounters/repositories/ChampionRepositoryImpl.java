@@ -72,7 +72,7 @@ public class ChampionRepositoryImpl implements ChampionRepository {
         champions.add(new Champion(55, "Kayle", "The Righteous", Arrays.asList(70,45),Arrays.asList(99,32,33,39,136)));
         champions.add(new Champion(56, "Kayn", "The Shadow Reaper", Arrays.asList(5,83),Arrays.asList(104,63,96,35,51)));
         champions.add(new Champion(57, "Kennen", "The Heart of the Tempest", Arrays.asList(70,88,129,96,55),Arrays.asList(125,39,143,40,131)));
-        champions.add(new Champion(58, "Kha'zix", "The Voidreaver", Arrays.asList(5,83,93,111,22),Arrays.asList(115,51,59,96,65)));
+        champions.add(new Champion(58, "Kha'Zix", "The Voidreaver", Arrays.asList(5,83,93,111,22),Arrays.asList(115,51,59,96,65)));
         champions.add(new Champion(59, "Kindred", "The Eternal Hunters", Arrays.asList(5,22,58,35,83),Arrays.asList(115,51,65,81,24)));
         champions.add(new Champion(60, "Kled", "The Cantankerous Cavalier", Arrays.asList(55,70,121,33,131),Arrays.asList(143,78,39,125,40)));
         champions.add(new Champion(61, "Kog'Maw", "The Mouth of the Abyss", Arrays.asList(143,46,23,74,9),Arrays.asList(130,49,8,67,48)));
