@@ -109,6 +109,7 @@ public class ChampionRepositoryImpl implements ChampionRepository {
         champions.add(new Champion(92, "Rakan", "The Charmer", Arrays.asList(31,150,42,12,76),Arrays.asList(104,50,87,89,153)));
         champions.add(new Champion(93, "Rammus", "The Armordillo", Arrays.asList(5,111,83,22,124),Arrays.asList(115,35,96,63,82)));
         champions.add(new Champion(94, "Rek'Sai", "The The Void Burrower", Arrays.asList(5,93,22,83,25),Arrays.asList(115,81,63,35,96)));
+        champions.add(new Champion(154,"Rell","The Iron Maiden",Arrays.asList(112,114,141,87,92),Arrays.asList(70,50,146)));
         champions.add(new Champion(95, "Renekton", "The Butcher of the Sands", Arrays.asList(5,93,22,83,25),Arrays.asList(125,143,97,32,40)));
         champions.add(new Champion(96, "Rengar", "The Pridestalker", Arrays.asList(5,93,83,138,101),Arrays.asList(81,59,104)));
         champions.add(new Champion(97, "Riven", "The Exile", Arrays.asList(91,70,88,129,55),Arrays.asList(144,22,40,136,145)));
@@ -116,7 +117,7 @@ public class ChampionRepositoryImpl implements ChampionRepository {
         champions.add(new Champion(99, "Ryze", "The Rune Mage", Arrays.asList(133,55,7,80,141),Arrays.asList(11,66,136)));
         champions.add(new Champion(100, "Samira", "The Desert Rose", Arrays.asList(114,74,46),Arrays.asList(8,127,130,49,27)));
         champions.add(new Champion(101, "Sejuani", "Fury of the North", Arrays.asList(5,22,84,111,83),Arrays.asList(115,81,35,96,63)));
-        champions.add(new Champion(102, "Senna", "The Redeemer", Arrays.asList(7,152,114,64,69),Arrays.asList(104,112,50,102)));
+        champions.add(new Champion(102, "Senna", "The Redeemer", Arrays.asList(7,152,114,64,69),Arrays.asList(104,112,50,113,154)));
         champions.add(new Champion(103, "Seraphine", "The Starry-Eyed Songstress", Arrays.asList(141,72,105,12,64),Arrays.asList(104,92,50,102)));
         champions.add(new Champion(104, "Sett", "The Boss", Arrays.asList(70,55,88,106,34),Arrays.asList(143,40,144,136,32)));
         champions.add(new Champion(105, "Shaco", "The Demon Jester", Arrays.asList(5,83,93,56,128),Arrays.asList(115,81,104,59,24)));
@@ -126,7 +127,7 @@ public class ChampionRepositoryImpl implements ChampionRepository {
         champions.add(new Champion(109, "Sion", "The Undead Juggernaut", Arrays.asList(55,60,34,75,106),Arrays.asList(32,67,40,143,45)));
         champions.add(new Champion(110, "Sivir", "The Battle Mistress", Arrays.asList(130,131,9,15,23),Arrays.asList(8,143,127)));
         champions.add(new Champion(111, "Skarner", "The Crystal Vanguard", Arrays.asList(5,137,147,83,84),Arrays.asList(115,81,63,65,96)));
-        champions.add(new Champion(112, "Sona", "Maven of the Strings", Arrays.asList(114,141,72,79,102),Arrays.asList(50,120,146,92,69)));
+        champions.add(new Champion(112, "Sona", "Maven of the Strings", Arrays.asList(114,141,72,79,102),Arrays.asList(154,120,146,92,69)));
         champions.add(new Champion(113, "Soraka", "The Starchild", Arrays.asList(72,42,64,14,12),Arrays.asList(153,104,50,92,69)));
         champions.add(new Champion(114, "Swain", "The Noxian Grand General", Arrays.asList(141,14,77,105,120),Arrays.asList(70,104,102,4,92)));
         champions.add(new Champion(115, "Sylas", "The Unshackled", Arrays.asList(14,55,30,98,69),Arrays.asList(40,67,119,70,90)));
